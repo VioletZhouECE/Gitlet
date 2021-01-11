@@ -1,8 +1,9 @@
 import commands.AddCommand;
 
+import java.io.IOException;
 import java.io.Serializable;
 
-//this class is just for verifying the input is valid and "routing" commands to the corresponding "handler"
+//verify that the input format is valid and "route" commands to their corresponding "handler"
 public class Gitlet {
     public static void execute(String[] args){
         if (args.length > 2){
