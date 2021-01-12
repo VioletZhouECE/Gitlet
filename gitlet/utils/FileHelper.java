@@ -2,9 +2,6 @@ package utils;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
 import org.apache.commons.io.FileUtils;
 
 public class FileHelper {
@@ -20,11 +17,10 @@ public class FileHelper {
     }
 
     public static void addFileToStaging(String filename) throws IOException {
-        String source = getFilePathInCurrentDir(filename);
-        Path sourcePath = Path.of(source);
+        File sourceFile = new File(filename);
         String target = ".gitlet/staging/";
-        Path targetPath = Path.of(target);
-        Files.copy(targetPath, sourcePath, StandardCopyOption.REPLACE_EXISTING);
+        File targetFile = new File(target + filename);
+        FileUtils.copyFile(sourceFile, targetFile);
     }
 
     public static String getFilePathInCurrentDir(String filename){

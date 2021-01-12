@@ -20,7 +20,7 @@ public class Gitlet {
                 System.out.println("Incorrect operands");
                 return;
             }
-            AddCommand.execute(arg1, arg2);
+            AddCommand.execute(arg2);
             return;
         }
 
